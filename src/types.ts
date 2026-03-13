@@ -46,7 +46,7 @@ export const projects: Project[] = [
     ],
     details: {
       brochureUrl: 'https://heyzine.com/flip-book/588af4707e.html#page/18',
-      masterPlanUrl: 'https://docs.google.com/viewer?url=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SzeKOpPZCAGfLMMVXY1JBMG3UkH9mggd%26export%3Ddownload&embedded=true',
+      masterPlanImages: ['https://i.postimg.cc/h4z9zfPR/Serenity-Hillview-Masterplan.png'],
     }
   },
   {
