@@ -96,7 +96,7 @@ export default function SecureProjectDetails() {
         {activeTab === 'masterplan' && (
           <div className="w-full">
             {project.details?.masterPlanUrl ? (
-              <div className="-mx-[10px]" style={{ height: '90vh' }}>
+              <div className="-mx-[10px] bg-white" style={{ height: '90vh' }}>
                 <iframe
                   src={project.details.masterPlanUrl}
                   className="w-full h-full border-0"
