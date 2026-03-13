@@ -61,7 +61,10 @@ export default function ProjectDetail() {
                 src={project.imageUrl}
                 alt={project.title}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                loading="eager"
+                fetchPriority="high"
+                decoding="sync"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
               />
             </motion.div>
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
@@ -113,29 +116,30 @@ export default function ProjectDetail() {
                       const caption = typeof img === 'string' ? `${gallery.name} Image ${iIndex + 1}` : img.caption;
 
                       return (
-                        <div
-                          key={iIndex}
-                          className="sticky top-0 w-full h-[100vh] flex items-center justify-center bg-bg overflow-hidden pt-[8px]"
-                        >
-                          <motion.div
-                            initial={{ scale: 0.8, opacity: 0, y: 100 }}
-                            whileInView={{ scale: 1, opacity: 1, y: 0 }}
-                            viewport={{ once: false, margin: "-20%" }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="w-full h-full flex justify-center bg-black/5 overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
-                          >
-                            <img
-                              src={imgUrl}
-                              alt={`${project.title} - ${caption}`}
-                              referrerPolicy="no-referrer"
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                            />
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                              <span className="text-bg font-medium tracking-widest uppercase text-xl md:text-3xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                {caption}
-                              </span>
-                            </div>
-                          </motion.div>
+                        <div key={iIndex} style={{ height: '230vh' }}>
+                          <div className="sticky top-0 w-full h-screen overflow-hidden bg-bg pt-[8px]">
+                            <motion.div
+                              initial={{ scale: 0.85, opacity: 0, y: 80 }}
+                              whileInView={{ scale: 1, opacity: 1, y: 0 }}
+                              viewport={{ once: false, margin: '-10%' }}
+                              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                              className="w-full h-full overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
+                            >
+                              <img
+                                src={imgUrl}
+                                alt={`${project.title} - ${caption}`}
+                                referrerPolicy="no-referrer"
+                                loading="lazy"
+                                decoding="async"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span className="text-bg font-medium tracking-widest uppercase text-xl md:text-3xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                  {caption}
+                                </span>
+                              </div>
+                            </motion.div>
+                          </div>
                         </div>
                       );
                     })}

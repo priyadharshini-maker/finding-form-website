@@ -10,7 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
-      <ScrollToTop />
+<ScrollToTop />
       <Navbar />
 
       <main className="flex-1">

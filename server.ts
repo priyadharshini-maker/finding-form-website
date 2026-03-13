@@ -1,72 +1,51 @@
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
-import twilio from 'twilio';
 
 const app = express();
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
-// In-memory store for OTPs (for demo/prototype purposes)
+// In-memory store for OTPs
 const otpStore = new Map<string, { otp: string, expiresAt: number }>();
 
-// Allowed numbers - we strip non-digits for comparison
-const ALLOWED_NUMBERS = ['9787542461'];
-
-let twilioClient: twilio.Twilio | null = null;
-function getTwilio() {
-  if (!twilioClient) {
-    const sid = process.env.TWILIO_ACCOUNT_SID;
-    const token = process.env.TWILIO_AUTH_TOKEN;
-    if (!sid || !token) {
-      return null;
-    }
-    twilioClient = twilio(sid, token);
-  }
-  return twilioClient;
-}
+// ── Authorized Indian mobile numbers (10 digits, no country code) ──────────
+const ALLOWED_NUMBERS = ['8098962404'];
 
 app.post('/api/auth/send-otp', async (req, res) => {
   try {
     const { phone } = req.body;
     if (!phone) return res.status(400).json({ error: 'Phone number is required' });
 
-    // Clean phone number (remove spaces, dashes, etc.)
-    const cleanPhone = phone.replace(/\D/g, '');
-    
-    // Check if allowed (check if it ends with the allowed number to handle country codes)
-    const isAllowed = ALLOWED_NUMBERS.some(num => cleanPhone.endsWith(num));
+    // Keep only digits, strip country code if present
+    const cleanPhone = phone.replace(/\D/g, '').replace(/^91(\d{10})$/, '$1');
+
+    const isAllowed = ALLOWED_NUMBERS.some(num => num === cleanPhone);
     if (!isAllowed) {
       return res.status(403).json({ error: 'This phone number is not authorized to view this project.' });
     }
 
-    // Generate 6-digit OTP
+    // Generate 6-digit OTP (5-minute expiry)
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    otpStore.set(cleanPhone, { otp, expiresAt: Date.now() + 5 * 60 * 1000 }); // 5 mins expiry
+    otpStore.set(cleanPhone, { otp, expiresAt: Date.now() + 5 * 60 * 1000 });
 
-    // Send SMS via Twilio
-    const client = getTwilio();
-    const fromNumber = process.env.TWILIO_PHONE_NUMBER;
+    const fast2smsKey = process.env.FAST2SMS_API_KEY;
 
-    if (client && fromNumber) {
-      // Ensure it has a country code. If it's a 10-digit Indian number, prepend +91
-      const toPhone = cleanPhone.length === 10 ? `+91${cleanPhone}` : `+${cleanPhone}`;
-
-      await client.messages.create({
-        body: `Your Trubuild verification code is: ${otp}`,
-        from: fromNumber,
-        to: toPhone
-      });
-
+    if (fast2smsKey) {
+      // Send via Fast2SMS OTP route (no DLT registration required)
+      const response = await fetch(
+        `https://www.fast2sms.com/dev/bulkV2?authorization=${fast2smsKey}&variables_values=${otp}&route=otp&numbers=${cleanPhone}`,
+        { method: 'GET', headers: { 'cache-control': 'no-cache' } }
+      );
+      const data = await response.json() as { return: boolean; message: string[] };
+      if (!data.return) {
+        throw new Error(data.message?.join(', ') || 'Fast2SMS failed to send OTP');
+      }
       res.json({ success: true, message: 'OTP sent successfully' });
     } else {
-      console.log(`[DEMO MODE] Twilio credentials missing. OTP for ${cleanPhone} is: ${otp}`);
-      res.json({ 
-        success: true, 
-        message: 'OTP generated in DEMO mode', 
-        demoMode: true,
-        demoOtp: otp 
-      });
+      // Demo mode — OTP shown in browser alert (for local testing)
+      console.log(`[DEMO MODE] FAST2SMS_API_KEY not set. OTP for ${cleanPhone} is: ${otp}`);
+      res.json({ success: true, message: 'OTP generated in DEMO mode', demoMode: true, demoOtp: otp });
     }
   } catch (error: any) {
     console.error('OTP Send Error:', error);

@@ -19,19 +19,19 @@ export const projects: Project[] = [
     number: '01',
     title: 'Serenity Hillview',
     category: 'Residential Plotted Development',
-    imageUrl: 'https://i.postimg.cc/MKZPmGyX/HILLVIEW-NIGHT-(1).png',
+    imageUrl: 'https://i.postimg.cc/2mhsmbyd/HILLVIEW-NIGHT-(1).png',
     description: 'A premium residential plotted development offering lush green landscapes and modern amenities. Experience tranquil living with thoughtfully designed spaces that harmonize with nature.',
     galleries: [
       {
         name: 'Gallery',
         images: [
-          { url: 'https://i.postimg.cc/Z53YHYnZ/Entrance.png', caption: 'Entrance' },
-          { url: 'https://i.postimg.cc/RZfCdChS/Entrance-Gateway-Vista.png', caption: 'Entrance Gateway Vista' },
-          { url: 'https://i.postimg.cc/vZ98h8TQ/Landscape-Pathway.png', caption: 'Landscape Pathway' },
-          { url: 'https://i.postimg.cc/jSNqcq2j/Main-Axis-Intersection.png', caption: 'Main Axis Intersection' },
-          { url: 'https://i.postimg.cc/FK4rBtkF/Palm-Grove-Corner.png', caption: 'Palm Grove Corner' },
-          { url: 'https://i.postimg.cc/Lsp9bdgY/Palm-Walkway.png', caption: 'Palm Walkway' },
-          { url: 'https://i.postimg.cc/yNH1bq3Z/Quiet-Corner.png', caption: 'Quiet Corner' }
+          { url: 'https://i.postimg.cc/GdgBcH1B/Entrance.png', caption: 'Entrance' },
+          { url: 'https://i.postimg.cc/WTYD2hPk/Entrance-Gateway-Vista.png', caption: 'Entrance Gateway Vista' },
+          { url: 'https://i.postimg.cc/2r9qzVfB/Landscape-Pathway.png', caption: 'Landscape Pathway' },
+          { url: 'https://i.postimg.cc/B478qXG2/Main-Axis-Intersection.png', caption: 'Main Axis Intersection' },
+          { url: 'https://i.postimg.cc/LmqJh2HP/Palm-Grove-Corner.png', caption: 'Palm Grove Corner' },
+          { url: 'https://i.postimg.cc/6B78Tt90/Palm-Walkway.png', caption: 'Palm Walkway' },
+          { url: 'https://i.postimg.cc/x9kXqn0t/Quiet-Corner.png', caption: 'Quiet Corner' }
         ]
       }
     ]
@@ -41,13 +41,22 @@ export const projects: Project[] = [
     number: '02',
     title: 'Amber',
     category: 'Apartment',
-    imageUrl: 'https://i.postimg.cc/t44gbFFT/Whats_App_Image_2026_02_27_at_17_24_51.jpg',
+    imageUrl: 'https://i.postimg.cc/nLjNgT8k/Day-Exterior-Front-Elevation-Wide.png',
     description: 'An elegant apartment complex featuring contemporary architecture and luxurious interiors. Designed for urban living with a perfect blend of comfort and sophistication.',
     galleries: [
       {
-        name: 'Gallery',
+        name: 'Exterior & Architectural Views',
         images: [
-          { url: 'https://i.postimg.cc/t44gbFFT/Whats_App_Image_2026_02_27_at_17_24_51.jpg', caption: 'Full view' }
+          { url: 'https://i.postimg.cc/nLjNgT8k/Day-Exterior-Front-Elevation-Wide.png', caption: 'Day Exterior Front Elevation (Wide)' },
+          { url: 'https://i.postimg.cc/y8rwLtGt/Upper-Terrace-Branding-Close-up.png', caption: 'Upper Terrace Branding (Close-up)' }
+        ]
+      },
+      {
+        name: 'Rooftop & Terrace Amenities',
+        images: [
+          { url: 'https://i.postimg.cc/qqDf6v97/Rooftop-Interior-Co-working-Lounge-Area.png', caption: 'Rooftop Interior Co-working Lounge Area' },
+          { url: 'https://i.postimg.cc/d3NMZVzh/Rooftop-Lifestyle-Lawns-Outdoor-Seating.png', caption: 'Rooftop Lifestyle Lawns Outdoor Seating' },
+          { url: 'https://i.postimg.cc/3NfM0xPJ/Terrace-Detail-Lounge-Area-with-Laser-Cut-Screening.png', caption: 'Terrace Detail Lounge Area with Laser Cut Screening' }
         ]
       }
     ]
@@ -57,27 +66,27 @@ export const projects: Project[] = [
     number: '03',
     title: 'Terragreens',
     category: 'Residential Farm Development',
-    imageUrl: 'https://i.postimg.cc/HxH4WSzX/1-(5).png',
+    imageUrl: 'https://i.postimg.cc/cstDm289/1-(5).png',
     description: 'A sprawling residential farm development that brings you closer to nature. Enjoy spacious farmhouses surrounded by organic gardens and serene landscapes.',
     galleries: [
       {
         name: 'Site Entrance',
         images: [
-          { url: 'https://i.postimg.cc/RF4TvNfb/Aerial-Entrance-View.jpg', caption: 'Aerial Entrance View' },
-          { url: 'https://i.postimg.cc/xdKRrKkw/Entrance-Gatehouse.jpg', caption: 'Entrance Gatehouse' },
-          { url: 'https://i.postimg.cc/BvxgWx8d/Gate-Side-View.jpg', caption: 'Gate Side View' },
-          { url: 'https://i.postimg.cc/s2Fc0n2h/Main-Entrance-Gate.jpg', caption: 'Main Entrance Gate' }
+          { url: 'https://i.postimg.cc/F9JCgSKm/Aerial-Entrance-View.jpg', caption: 'Aerial Entrance View' },
+          { url: 'https://i.postimg.cc/XnPDCLnY/Entrance-Gatehouse.jpg', caption: 'Entrance Gatehouse' },
+          { url: 'https://i.postimg.cc/k7Hhbs7X/Gate-Side-View.jpg', caption: 'Gate Side View' },
+          { url: 'https://i.postimg.cc/Yt0s0ZKb/Main-Entrance-Gate.jpg', caption: 'Main Entrance Gate' }
         ]
       },
       {
         name: 'Villa Areas',
         images: [
-          { url: 'https://i.postimg.cc/RVgCR8XY/Front-Yard.png', caption: 'Front Yard' },
-          { url: 'https://i.postimg.cc/QdV8nbzd/Garden-View.png', caption: 'Garden View' },
-          { url: 'https://i.postimg.cc/kXTMcZf0/House-Exterior.png', caption: 'House Exterior' },
-          { url: 'https://i.postimg.cc/jS9xVfV5/Outdoor-Seating.png', caption: 'Outdoor Seating' },
-          { url: 'https://i.postimg.cc/8PZkH3tq/Side-Pond.png', caption: 'Side Pond' },
-          { url: 'https://i.postimg.cc/m2mZwq8J/Swimming-Pool.png', caption: 'Swimming Pool' }
+          { url: 'https://i.postimg.cc/GdCBcnYb/Front-Yard.png', caption: 'Front Yard' },
+          { url: 'https://i.postimg.cc/3YFkNfCm/Garden-View.png', caption: 'Garden View' },
+          { url: 'https://i.postimg.cc/HdgJp15k/House-Exterior.png', caption: 'House Exterior' },
+          { url: 'https://i.postimg.cc/jRqL76Zz/Outdoor-Seating.png', caption: 'Outdoor Seating' },
+          { url: 'https://i.postimg.cc/GdCBcnYh/Side-Pond.png', caption: 'Side Pond' },
+          { url: 'https://i.postimg.cc/fDN3wQXz/Swimming-Pool.png', caption: 'Swimming Pool' }
         ]
       }
     ]
@@ -121,25 +130,24 @@ export const projects: Project[] = [
     number: '05',
     title: 'Masons Desk',
     category: 'Furniture design',
-    imageUrl: 'https://i.postimg.cc/LXCYdvbP/IMG-1025.png',
+    imageUrl: 'https://i.postimg.cc/13ZQSGzv/Night-Scene-Hero-View.png',
     description: 'A bespoke furniture design piece crafted with precision and elegance. Combining functional ergonomics with minimalist aesthetics for the modern workspace.',
     galleries: [
       {
-        name: 'Office Interior',
+        name: 'Office Interiors',
         images: [
-          { url: 'https://i.postimg.cc/GmxyhjCQ/Desk-Side-View.jpg', caption: 'Desk Side View' },
-          { url: 'https://i.postimg.cc/DzfbWbfr/Full-Office-Perspective.png', caption: 'Full Office Perspective' },
-          { url: 'https://i.postimg.cc/N0GryrGy/Office-Night-View.png', caption: 'Office Night View' },
-          { url: 'https://i.postimg.cc/wBxstsxB/Office-Overview.png', caption: 'Office Overview' },
-          { url: 'https://i.postimg.cc/N0GryrGf/Workspace-Top-Angle.png', caption: 'Workspace Top Angle' }
+          { url: 'https://i.postimg.cc/zXhr4tqC/High-Angle.png', caption: 'High Angle' },
+          { url: 'https://i.postimg.cc/T1L6dQgY/Low-Angle-Ceiling-Detail.png', caption: 'Low Angle Ceiling Detail' },
+          { url: 'https://i.postimg.cc/Vvr8f4n5/Macro-Material-Detail.png', caption: 'Macro Material Detail' },
+          { url: 'https://i.postimg.cc/13ZQSGzv/Night-Scene-Hero-View.png', caption: 'Night Scene Hero View' },
+          { url: 'https://i.postimg.cc/Gt8CLzGL/Side-Eye-Level-View.png', caption: 'Side Eye Level View' },
+          { url: 'https://i.postimg.cc/Gt8CLzGr/Wide-Corner-Perspective.png', caption: 'Wide Corner Perspective' }
         ]
       },
       {
-        name: 'Design & Furniture',
+        name: 'Office Exterior',
         images: [
-          { url: 'https://i.postimg.cc/Vvzy11B4/Brick-Desk-Base.png', caption: 'Brick Desk Base' },
-          { url: 'https://i.postimg.cc/NFQhYY7D/Desk-Surface-Close-up.png', caption: 'Desk Surface Close up' },
-          { url: 'https://i.postimg.cc/C1GyWdDm/Table-Top-Detail.png', caption: 'Table Top Detail' }
+          { url: 'https://i.postimg.cc/qvnvXBNZ/Straight-Front-Elevation.png', caption: 'Straight Front Elevation' }
         ]
       }
     ]
@@ -245,13 +253,22 @@ export const projects: Project[] = [
         ]
       },
       {
-        name: 'Villa 3',
+        name: 'Villa 3 Option 1',
         images: [
-          { url: 'https://i.postimg.cc/jqySyQgP/Angular-Wing-Perspective.png', caption: 'Angular Wing Perspective' },
-          { url: 'https://i.postimg.cc/L6T4b4F0/Garden-Elevation.png', caption: 'Garden Elevation' },
-          { url: 'https://i.postimg.cc/zDTGTStn/Outdoor-Bar.png', caption: 'Outdoor Bar' },
-          { url: 'https://i.postimg.cc/FF0H0gWc/Terrace-Perspective.png', caption: 'Terrace Perspective' },
-          { url: 'https://i.postimg.cc/02x2nMFb/Veranda-Perspective.png', caption: 'Veranda Perspective' }
+          { url: 'https://i.postimg.cc/KcXtgnp3/Full-Front-Elevation.png', caption: 'Full Front Elevation' },
+          { url: 'https://i.postimg.cc/mL1QDdjF/Landscape-Feature-Pod-Close-Up.png', caption: 'Landscape Feature Pod Close Up' },
+          { url: 'https://i.postimg.cc/v8R56W21/Outdoor-Bar-and-Deck-Perspective.png', caption: 'Outdoor Bar and Deck Perspective' },
+          { url: 'https://i.postimg.cc/J7wjBbYs/Rear-Perspective-View.png', caption: 'Rear Perspective View' }
+        ]
+      },
+      {
+        name: 'Villa 3 Option 2',
+        images: [
+          { url: 'https://i.postimg.cc/Jmbk2Hd2/Front-Elevation-Landscape-View.png', caption: 'Front Elevation Landscape View' },
+          { url: 'https://i.postimg.cc/rcSrPRYB/Front-Perspective-View.png', caption: 'Front Perspective View' },
+          { url: 'https://i.postimg.cc/37gvc0b6/Outdoor-Deck-and-Bar-Close-Up.png', caption: 'Outdoor Deck and Bar Close Up' },
+          { url: 'https://i.postimg.cc/tyhxMnm8/Rear-Patio-and-Garden-View.png', caption: 'Rear Patio and Garden View' },
+          { url: 'https://i.postimg.cc/JMMkV7fm/Side-Perspective-View.png', caption: 'Side Perspective View' }
         ]
       }
     ]
@@ -261,24 +278,23 @@ export const projects: Project[] = [
     number: '09',
     title: 'Number 10 Coffee Stall',
     category: 'Coffee Kiosk',
-    imageUrl: 'https://i.postimg.cc/d00Z5z54/Gemini-Generated-Image-o6bk1eo6bk1eo6bk.png',
+    imageUrl: 'https://i.postimg.cc/DwCvQCF5/External-Isometric-Overview.png',
     description: 'A compact and stylish coffee kiosk designed for high-footfall urban areas. Efficient layout meets inviting aesthetics to create the perfect coffee stop.',
     galleries: [
       {
-        name: 'Exterior Views',
+        name: 'External & Overview',
         images: [
-          { url: 'https://i.postimg.cc/cJpy929M/Isometric-Aerial-View.png', caption: 'Isometric Aerial View' },
-          { url: 'https://i.postimg.cc/QM2G4w4T/Three-Quarter-Perspective.png', caption: 'Three Quarter Perspective' },
-          { url: 'https://i.postimg.cc/VNxQGpGt/Wide-Exterior-Side-View.png', caption: 'Wide Exterior Side View' }
+          { url: 'https://i.postimg.cc/DwCvQCF5/External-Isometric-Overview.png', caption: 'External Isometric Overview' },
+          { url: 'https://i.postimg.cc/pL0WQ0xG/Front-Perspective-Wide.png', caption: 'Front Perspective Wide' }
         ]
       },
       {
-        name: 'Interior & Close-Up Views',
+        name: 'Internal & Close-ups',
         images: [
-          { url: 'https://i.postimg.cc/zBCMdBHs/Barista-Eye-Level-View.png', caption: 'Barista Eye Level View' },
-          { url: 'https://i.postimg.cc/sXY8nXZd/Entrance-Branding-Close-Up.png', caption: 'Entrance Branding Close Up' },
-          { url: 'https://i.postimg.cc/yx7G2HFH/Full-Frontal-View.png', caption: 'Full Frontal View' },
-          { url: 'https://i.postimg.cc/QtQP6tWL/Left-Angle-Interior-Detail.png', caption: 'Left Angle Interior Detail' }
+          { url: 'https://i.postimg.cc/ZqMqmwDD/Internal-Barista-Station.png', caption: 'Internal Barista Station' },
+          { url: 'https://i.postimg.cc/vmNmy0Sk/Internal-Front-Counter.png', caption: 'Internal Front Counter' },
+          { url: 'https://i.postimg.cc/VNVNwKH3/Internal-Main-Counter-Eye-Level.png', caption: 'Internal Main Counter Eye Level' },
+          { url: 'https://i.postimg.cc/CKQK0c6t/Internal-Pastry-Display-Detail.png', caption: 'Internal Pastry Display Detail' }
         ]
       }
     ]
@@ -288,25 +304,22 @@ export const projects: Project[] = [
     number: '10',
     title: 'Aura',
     category: 'Restobar',
-    imageUrl: 'https://i.postimg.cc/7YskgdT2/Scene-1(1)-effect-(1).png',
+    imageUrl: 'https://i.postimg.cc/BJcNqmgY/Bird-s-Eye-Perspective.png',
     description: 'A vibrant restobar featuring atmospheric lighting and contemporary design. The perfect setting for immersive dining and unforgettable evening experiences.',
     galleries: [
       {
-        name: 'Exterior Views',
+        name: 'External Views',
         images: [
-          { url: 'https://i.postimg.cc/h4sgcS2q/Balcony-Pergola-Detail-(High-Angle-Close-up).png', caption: 'Balcony Pergola Detail (High Angle Close up)' },
-          { url: 'https://i.postimg.cc/Kj0yNN1R/Entrance-and-Signage-Detail-(Angular-View).png', caption: 'Entrance and Signage Detail (Angular View)' },
-          { url: 'https://i.postimg.cc/5ysM33XX/Front-Elevation-(Wide-Shot).png', caption: 'Front Elevation (Wide Shot)' },
-          { url: 'https://i.postimg.cc/7hKyVV52/Front-Left-Corner-Perspective-(Street-View).png', caption: 'Front Left Corner Perspective (Street View)' },
-          { url: 'https://i.postimg.cc/j2MrXXDC/Low-Angle-Facade-(Worm-s-Eye-View).png', caption: 'Low Angle Facade (Worm s Eye View)' },
-          { url: 'https://i.postimg.cc/brmjTTZG/Main-Entrance-Facade-(Straight-on-View).png', caption: 'Main Entrance Facade (Straight on View)' },
-          { url: 'https://i.postimg.cc/qq1dLLNy/Primary-Front-Perspective-(Full-View).png', caption: 'Primary Front Perspective (Full View)' }
+          { url: 'https://i.postimg.cc/BJcNqmgY/Bird-s-Eye-Perspective.png', caption: 'Birds Eye Perspective' },
+          { url: 'https://i.postimg.cc/hKqpWkLq/Front-Elevation-Eye-Level.png', caption: 'Front Elevation Eye Level' },
+          { url: 'https://i.postimg.cc/mTG8fvQ0/Front-Perspective-Wide-View.png', caption: 'Front Perspective Wide View' }
         ]
       },
       {
-        name: 'Interior / Transition Views',
+        name: 'External Detailed',
         images: [
-          { url: 'https://i.postimg.cc/d3HzdVft/Interior-to-Exterior-Transition-(View-through-Main-Doors).png', caption: 'Interior to Exterior Transition' }
+          { url: 'https://i.postimg.cc/D26Ccx4X/Pergola-Detail-Close-up.png', caption: 'Pergola Detail Close up' },
+          { url: 'https://i.postimg.cc/gYsMKgLL/Terrace-View-Mid-Shot.png', caption: 'Terrace View Mid Shot' }
         ]
       }
     ]
@@ -332,14 +345,42 @@ export const projects: Project[] = [
     number: '12',
     title: 'Hampi House',
     category: 'Office space',
-    imageUrl: 'https://i.postimg.cc/YChFpcHq/Scene-4-(1)-(1).png',
+    imageUrl: 'https://i.postimg.cc/FzzdFbCB/Full-building-Landscaping.png',
     description: 'A culturally inspired office space blending traditional elements with modern functionality. Designed to reflect heritage while supporting contemporary work styles.',
     galleries: [
       {
-        name: 'Gallery',
+        name: 'Exterior',
         images: [
-          { url: 'https://i.postimg.cc/2mg16qjR/Scene-4-(1)-(3).png', caption: 'Exterior View' },
-          { url: 'https://i.postimg.cc/sybMXBjt/Scene2-(1)-(1).png', caption: 'Interior Workspace' }
+          { url: 'https://i.postimg.cc/FzzdFbCB/Full-building-Landscaping.png', caption: 'Full-building Landscaping' },
+          { url: 'https://i.postimg.cc/wMMyx54X/Left-Angle-Perspective.png', caption: 'Left Angle Perspective' },
+          { url: 'https://i.postimg.cc/Gtt83Pgq/Mesh-detail-Planters.png', caption: 'Mesh detail Planters' },
+          { url: 'https://i.postimg.cc/4yy74v25/Showroom-Entrance.png', caption: 'Showroom Entrance' },
+          { url: 'https://i.postimg.cc/zvQLyL4d/Urban-context-Solar-roof.png', caption: 'Urban context Solar roof' }
+        ]
+      }
+    ]
+  },
+  {
+    id: '13',
+    number: '13',
+    title: 'Ranka Oasis',
+    category: 'Residential Plotted Development',
+    imageUrl: 'https://i.postimg.cc/XjF68bLm/Front-Elevation-of-Twin-Villas.png',
+    description: 'A serene gated residential community nestled in lush greenery. Ranka Oasis features elegantly designed twin villas and row homes with a grand entrance, landscaped streetscapes, and resort-style open spaces — offering a peaceful retreat from city life.',
+    galleries: [
+      {
+        name: 'Entrance & Landscape',
+        images: [
+          { url: 'https://i.postimg.cc/NgZwmM6K/Main-Entrance-Gate-and-Statue-View.png', caption: 'Main Entrance Gate and Statue View' },
+          { url: 'https://i.postimg.cc/Gc61G2FP/Security-Pavilion-and-Gate-Detail.png', caption: 'Security Pavilion and Gate Detail' },
+          { url: 'https://i.postimg.cc/YpTwY96Z/Gate-and-Landscape-Master-Plan-View.png', caption: 'Gate and Landscape Master Plan View' }
+        ]
+      },
+      {
+        name: 'Villas',
+        images: [
+          { url: 'https://i.postimg.cc/XjF68bLm/Front-Elevation-of-Twin-Villas.png', caption: 'Front Elevation of Twin Villas' },
+          { url: 'https://i.postimg.cc/CFRgRDqS/Row-Villa-Perspective-View.png', caption: 'Row Villa Perspective View' }
         ]
       }
     ]

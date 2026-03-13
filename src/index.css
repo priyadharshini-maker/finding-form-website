@@ -17,16 +17,9 @@
   }
 
   img {
-    image-rendering: -webkit-optimize-contrast;
     image-rendering: high-quality;
-    -ms-interpolation-mode: bicubic;
-    /* Subtle sharpness & contrast boost without visible color shift */
-    filter: contrast(1.03) saturate(1.05);
-    transition: filter 0.3s ease;
-  }
-
-  img:hover {
-    filter: contrast(1.06) saturate(1.08);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 
@@ -54,6 +47,12 @@
 .data-row:hover {
   background: var(--color-ink);
   color: var(--color-bg);
+}
+
+.project-image {
+  filter: contrast(1.05) saturate(1.08) brightness(1.02);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .col-header {
