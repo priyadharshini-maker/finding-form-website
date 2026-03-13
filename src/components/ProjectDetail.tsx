@@ -31,7 +31,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="w-full px-4 md:px-[10px] py-12 relative">
+    <div className="w-full px-[20px] md:px-[10px] py-12 relative">
       <Link to="/" className="inline-block mb-12 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity">
         ← Back to Works
       </Link>

@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export default function Contact() {
   return (
-    <div className="w-full px-4 md:px-[10px] py-12 min-h-[70vh]">
+    <div className="w-full px-[20px] md:px-[10px] py-12 min-h-[70vh]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

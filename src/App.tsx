@@ -23,7 +23,7 @@ export default function App() {
         </Routes>
       </main>
 
-      <footer className="px-4 md:px-[10px] py-12 border-t border-line flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <footer className="px-[20px] md:px-[10px] py-12 border-t border-line flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div className="text-xs opacity-40 uppercase tracking-widest">
           © 2026 Finding Form
         </div>
