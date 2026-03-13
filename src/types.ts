@@ -3,6 +3,12 @@ export interface ProjectGalleryCategory {
   images: (string | { url: string; caption: string; objectPosition?: string })[];
 }
 
+export interface ProjectDetails {
+  brochureUrl?: string;
+  masterPlanImages?: string[];
+  floorPlanImages?: string[];
+}
+
 export interface Project {
   id: string;
   number: string;
@@ -11,6 +17,7 @@ export interface Project {
   imageUrl: string;
   description?: string;
   galleries?: ProjectGalleryCategory[];
+  details?: ProjectDetails;
 }
 
 export const projects: Project[] = [
@@ -34,7 +41,10 @@ export const projects: Project[] = [
           { url: 'https://i.postimg.cc/x9kXqn0t/Quiet-Corner.png', caption: 'Quiet Corner' }
         ]
       }
-    ]
+    ],
+    details: {
+      brochureUrl: 'https://heyzine.com/flip-book/588af4707e.html#page/18',
+    }
   },
   {
     id: '2',

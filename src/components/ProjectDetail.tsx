@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { projects } from '../types';
-import OtpModal from './OtpModal';
 
 // Reusable scroll-driven overlay for gallery images on mobile
 function GalleryImageCard({
@@ -71,7 +70,6 @@ export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === id);
-  const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -147,7 +145,7 @@ export default function ProjectDetail() {
                   </p>
                 )}
                 <button
-                  onClick={(e) => { e.stopPropagation(); setIsOtpModalOpen(true); }}
+                  onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
                   className="bg-bg text-ink px-8 py-4 text-sm font-medium uppercase tracking-widest hover:opacity-90 transition-opacity shadow-2xl whitespace-nowrap"
                 >
                   View Project Details
@@ -169,7 +167,7 @@ export default function ProjectDetail() {
                 </p>
               )}
               <button
-                onClick={(e) => { e.stopPropagation(); setIsOtpModalOpen(true); }}
+                onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
                 className="mt-2 border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5"
               >
                 View Project Details
@@ -220,11 +218,6 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      <OtpModal
-        isOpen={isOtpModalOpen}
-        onClose={() => setIsOtpModalOpen(false)}
-        onSuccess={() => navigate(`/project/${project.id}/secure-details`)}
-      />
     </div>
   );
 }
