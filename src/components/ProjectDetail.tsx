@@ -4,6 +4,69 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { projects } from '../types';
 import OtpModal from './OtpModal';
 
+// Reusable scroll-driven overlay for gallery images on mobile
+function GalleryImageCard({
+  imgUrl,
+  caption,
+  objectPosition,
+  altText,
+}: {
+  imgUrl: string;
+  caption: string;
+  objectPosition: string;
+  altText: string;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const overlayY = useTransform(scrollYProgress, [0.10, 0.30, 0.62, 0.82], ['60%', '0%', '0%', '-60%']);
+  const overlayOpacity = useTransform(scrollYProgress, [0.10, 0.28, 0.62, 0.80], [0, 1, 1, 0]);
+
+  return (
+    <div ref={containerRef} style={{ height: '230vh' }}>
+      <div className="sticky top-0 w-full h-screen overflow-hidden bg-bg pt-[8px]">
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0, y: 80 }}
+          whileInView={{ scale: 1, opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-10%' }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full h-full overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
+        >
+          <img
+            src={imgUrl}
+            alt={altText}
+            referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
+            style={{ objectPosition }}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
+          />
+
+          {/* Desktop: hover overlay */}
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex items-center justify-center">
+            <span className="text-bg font-medium tracking-widest uppercase text-3xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              {caption}
+            </span>
+          </div>
+
+          {/* Mobile: scroll-driven overlay */}
+          <motion.div
+            className="absolute inset-0 md:hidden bg-black/30 flex flex-col items-center justify-center gap-3 px-8 text-center"
+            style={{ y: overlayY, opacity: overlayOpacity }}
+          >
+            <span className="text-bg font-medium tracking-widest uppercase text-xl">
+              {caption}
+            </span>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -13,13 +76,17 @@ export default function ProjectDetail() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ['start start', 'end start'],
   });
 
-  // Natural fade of the image into the background
+  // Hero image parallax
   const imageOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const imageBlur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(12px)"]);
+  const imageBlur = useTransform(scrollYProgress, [0, 1], ['blur(0px)', 'blur(12px)']);
+
+  // Hero mobile overlay
+  const heroOverlayY = useTransform(scrollYProgress, [0.10, 0.30, 0.62, 0.82], ['60%', '0%', '0%', '-60%']);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0.10, 0.28, 0.62, 0.80], [0, 1, 1, 0]);
 
   if (!project) {
     return (
@@ -47,7 +114,7 @@ export default function ProjectDetail() {
         <p className="text-lg md:text-xl font-serif italic opacity-60">{project.category}</p>
       </motion.div>
 
-      {/* Hero Section with Scroll Animation */}
+      {/* Hero Section */}
       <div ref={heroRef} className="relative h-[150vh] mb-24 w-full">
         <div className="sticky top-32 w-full flex items-center justify-center overflow-hidden" style={{ height: 'calc(100vh - 8rem)' }}>
           <motion.div
@@ -67,27 +134,47 @@ export default function ProjectDetail() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+
+            {/* Desktop: hover overlay */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex items-center justify-center">
               <div className="flex flex-col items-center transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 px-6 text-center max-w-3xl">
-                <span className="text-bg font-medium tracking-widest uppercase text-2xl md:text-4xl mb-4">
+                <span className="text-bg font-medium tracking-widest uppercase text-4xl mb-4">
                   {project.title}
                 </span>
                 {project.description && (
-                  <p className="text-bg/80 text-sm md:text-base mb-8 line-clamp-3 leading-relaxed">
+                  <p className="text-bg/80 text-base mb-8 line-clamp-3 leading-relaxed">
                     {project.description}
                   </p>
                 )}
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsOtpModalOpen(true);
-                  }}
+                  onClick={(e) => { e.stopPropagation(); setIsOtpModalOpen(true); }}
                   className="bg-bg text-ink px-8 py-4 text-sm font-medium uppercase tracking-widest hover:opacity-90 transition-opacity shadow-2xl whitespace-nowrap"
                 >
                   View Project Details
                 </button>
               </div>
             </div>
+
+            {/* Mobile: scroll-driven overlay */}
+            <motion.div
+              className="absolute inset-0 md:hidden bg-black/30 flex flex-col items-center justify-center gap-4 px-8 text-center"
+              style={{ y: heroOverlayY, opacity: heroOverlayOpacity }}
+            >
+              <span className="text-bg font-medium tracking-widest uppercase text-xl">
+                {project.title}
+              </span>
+              {project.description && (
+                <p className="text-bg/70 text-sm leading-relaxed max-w-xs">
+                  {project.description}
+                </p>
+              )}
+              <button
+                onClick={(e) => { e.stopPropagation(); setIsOtpModalOpen(true); }}
+                className="mt-2 border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5"
+              >
+                View Project Details
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -100,7 +187,7 @@ export default function ProjectDetail() {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="text-2xl font-serif italic border-b border-line pb-4 bg-bg relative z-30"
               >
@@ -108,8 +195,6 @@ export default function ProjectDetail() {
               </motion.h2>
               <div className="relative">
                 <div className="relative pb-24">
-                  {/* Space for the sticky items to scroll through. 
-                      Since each item has h-screen, the container naturally expands. */}
                   <div className="flex flex-col">
                     {gallery.images.map((img, iIndex) => {
                       const imgUrl = typeof img === 'string' ? img : img.url;
@@ -117,31 +202,13 @@ export default function ProjectDetail() {
                       const objectPosition = typeof img === 'string' ? 'center' : (img.objectPosition ?? 'center');
 
                       return (
-                        <div key={iIndex} style={{ height: '230vh' }}>
-                          <div className="sticky top-0 w-full h-screen overflow-hidden bg-bg pt-[8px]">
-                            <motion.div
-                              initial={{ scale: 0.85, opacity: 0, y: 80 }}
-                              whileInView={{ scale: 1, opacity: 1, y: 0 }}
-                              viewport={{ once: false, margin: '-10%' }}
-                              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                              className="w-full h-full overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
-                            >
-                              <img
-                                src={imgUrl}
-                                alt={`${project.title} - ${caption}`}
-                                referrerPolicy="no-referrer"
-                                loading="lazy"
-                                decoding="async"
-                                style={{ objectPosition }}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
-                              />
-                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                <span className="text-bg font-medium tracking-widest uppercase text-xl md:text-3xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                  {caption}
-                                </span>
-                              </div>
-                            </motion.div>
-                          </div>
+                        <div key={iIndex}>
+                          <GalleryImageCard
+                            imgUrl={imgUrl}
+                            caption={caption}
+                            objectPosition={objectPosition}
+                            altText={`${project.title} - ${caption}`}
+                          />
                         </div>
                       );
                     })}
