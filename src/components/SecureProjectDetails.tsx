@@ -95,16 +95,19 @@ export default function SecureProjectDetails() {
         {/* Master Plan */}
         {activeTab === 'masterplan' && (
           <div className="w-full">
-            {project.details?.masterPlanImages && project.details.masterPlanImages.length > 0 ? (
+            {project.details?.masterPlanUrl ? (
+              <div className="w-full" style={{ height: '80vh' }}>
+                <iframe
+                  src={project.details.masterPlanUrl}
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  title={`${project.title} Master Plan`}
+                />
+              </div>
+            ) : project.details?.masterPlanImages && project.details.masterPlanImages.length > 0 ? (
               <div className="flex flex-col gap-8">
                 {project.details.masterPlanImages.map((url, i) => (
-                  <img
-                    key={i}
-                    src={url}
-                    alt={`${project.title} Master Plan ${i + 1}`}
-                    referrerPolicy="no-referrer"
-                    className="w-full object-contain"
-                  />
+                  <img key={i} src={url} alt={`${project.title} Master Plan ${i + 1}`} referrerPolicy="no-referrer" className="w-full object-contain" />
                 ))}
               </div>
             ) : (
@@ -116,16 +119,19 @@ export default function SecureProjectDetails() {
         {/* Floor Plan */}
         {activeTab === 'floorplan' && (
           <div className="w-full">
-            {project.details?.floorPlanImages && project.details.floorPlanImages.length > 0 ? (
+            {project.details?.floorPlanUrl ? (
+              <div className="w-full" style={{ height: '80vh' }}>
+                <iframe
+                  src={project.details.floorPlanUrl}
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  title={`${project.title} Floor Plan`}
+                />
+              </div>
+            ) : project.details?.floorPlanImages && project.details.floorPlanImages.length > 0 ? (
               <div className="flex flex-col gap-8">
                 {project.details.floorPlanImages.map((url, i) => (
-                  <img
-                    key={i}
-                    src={url}
-                    alt={`${project.title} Floor Plan ${i + 1}`}
-                    referrerPolicy="no-referrer"
-                    className="w-full object-contain"
-                  />
+                  <img key={i} src={url} alt={`${project.title} Floor Plan ${i + 1}`} referrerPolicy="no-referrer" className="w-full object-contain" />
                 ))}
               </div>
             ) : (

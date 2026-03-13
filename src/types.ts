@@ -5,7 +5,9 @@ export interface ProjectGalleryCategory {
 
 export interface ProjectDetails {
   brochureUrl?: string;
+  masterPlanUrl?: string;
   masterPlanImages?: string[];
+  floorPlanUrl?: string;
   floorPlanImages?: string[];
 }
 
