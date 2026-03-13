@@ -13,8 +13,8 @@ function ProjectCard({ project }: ProjectCardProps) {
   });
 
   // Mobile: description slides up from bottom, stays, then exits upward
-  const descY = useTransform(scrollYProgress, [0.12, 0.28, 0.60, 0.78], ['100%', '0%', '0%', '-100%']);
-  const descOpacity = useTransform(scrollYProgress, [0.12, 0.25, 0.60, 0.75], [0, 1, 1, 0]);
+  const descY = useTransform(scrollYProgress, [0.10, 0.30, 0.62, 0.82], ['60%', '0%', '0%', '-60%']);
+  const descOpacity = useTransform(scrollYProgress, [0.10, 0.28, 0.62, 0.80], [0, 1, 1, 0]);
 
   return (
     <div ref={containerRef} style={{ height: '230vh' }}>
@@ -59,9 +59,9 @@ function ProjectCard({ project }: ProjectCardProps) {
               </div>
             </div>
 
-            {/* Mobile: scroll-driven description panel slides up from bottom */}
+            {/* Mobile: scroll-driven overlay covers full image, content centred */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 md:hidden bg-black/60 px-6 py-8 flex flex-col gap-3"
+              className="absolute inset-0 md:hidden bg-black/30 flex flex-col items-center justify-center gap-4 px-8 text-center"
               style={{ y: descY, opacity: descOpacity }}
             >
               <div className="text-bg/60 font-mono text-xs tracking-widest uppercase">
@@ -74,11 +74,11 @@ function ProjectCard({ project }: ProjectCardProps) {
                 {project.category}
               </p>
               {project.description && (
-                <p className="text-bg/70 text-sm leading-relaxed">
+                <p className="text-bg/70 text-sm leading-relaxed max-w-xs">
                   {project.description}
                 </p>
               )}
-              <span className="mt-2 self-start inline-block border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5">
+              <span className="mt-2 inline-block border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5">
                 View Gallery
               </span>
             </motion.div>
