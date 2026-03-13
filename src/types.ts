@@ -1,6 +1,6 @@
 export interface ProjectGalleryCategory {
   name: string;
-  images: (string | { url: string; caption: string })[];
+  images: (string | { url: string; caption: string; objectPosition?: string })[];
 }
 
 export interface Project {
@@ -329,13 +329,15 @@ export const projects: Project[] = [
     number: '11',
     title: 'Frames and Walls Office',
     category: 'Office space',
-    imageUrl: 'https://i.postimg.cc/fyswrdws/1-(2).jpg',
+    imageUrl: 'https://i.postimg.cc/sfFNNvKZ/Front-View.png',
     description: 'A modern office space designed to foster creativity and collaboration. Features open workspaces, elegant meeting rooms, and inspiring executive cabins.',
     galleries: [
       {
         name: 'Exterior Views',
         images: [
-          { url: 'https://i.postimg.cc/SQVWbM8Z/Gemini-Generated-Image-m1wpodm1wpodm1wp.png', caption: 'Exterior View' }
+          { url: 'https://i.postimg.cc/pxMk8Qdt/Gemini-Generated-Image-m1wpodm1wpodm1wp.png', caption: 'Front Elevation Dusk View', objectPosition: 'bottom' },
+          { url: 'https://i.postimg.cc/FmXGcbK4/Gemini-Generated-Image-mh2qh7mh2qh7mh2q.png', caption: 'Front Perspective Daytime View' },
+          { url: 'https://i.postimg.cc/dvcndRVX/Screenshot-2026-03-05-182720.png', caption: 'Aerial Top View', objectPosition: 'top' }
         ]
       }
     ]

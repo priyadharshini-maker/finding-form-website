@@ -114,6 +114,7 @@ export default function ProjectDetail() {
                     {gallery.images.map((img, iIndex) => {
                       const imgUrl = typeof img === 'string' ? img : img.url;
                       const caption = typeof img === 'string' ? `${gallery.name} Image ${iIndex + 1}` : img.caption;
+                      const objectPosition = typeof img === 'string' ? 'center' : (img.objectPosition ?? 'center');
 
                       return (
                         <div key={iIndex} style={{ height: '230vh' }}>
@@ -131,6 +132,7 @@ export default function ProjectDetail() {
                                 referrerPolicy="no-referrer"
                                 loading="lazy"
                                 decoding="async"
+                                style={{ objectPosition }}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 project-image"
                               />
                               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
