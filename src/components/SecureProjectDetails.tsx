@@ -16,7 +16,7 @@ export default function SecureProjectDetails() {
   }
 
   return (
-    <div className="w-full px-[20px] md:px-[10px] py-12 min-h-[70vh]">
+    <div className="w-full px-[10px] py-12 min-h-[70vh]">
       <Link to={`/project/${project.id}`} className="inline-block mb-12 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity">
         ← Back to {project.title}
       </Link>

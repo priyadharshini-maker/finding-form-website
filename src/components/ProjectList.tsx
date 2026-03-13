@@ -14,7 +14,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           whileInView={{ scale: 1, opacity: 1, y: 0 }}
           viewport={{ once: false, margin: '-10%' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-[20px] md:mx-[10px] w-[calc(100%-40px)] md:w-[calc(100%-20px)] h-full overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
+          className="mx-[10px] w-[calc(100%-20px)] h-full overflow-hidden shadow-2xl relative group cursor-pointer origin-top"
         >
           <Link to={`/project/${project.id}`} className="block w-full h-full">
             <img
