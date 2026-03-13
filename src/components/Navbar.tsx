@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center px-[10px] py-4 border-b border-line sticky top-0 bg-bg/90 backdrop-blur-md z-50">
+    <nav className="flex justify-between items-center px-4 md:px-[10px] py-4 border-b border-line sticky top-0 bg-bg/90 backdrop-blur-md z-50">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
