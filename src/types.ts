@@ -81,7 +81,7 @@ export const projects: Project[] = [
     details: {
       brochureUrl: 'https://heyzine.com/flip-book/917c2aa29a.html',
       masterPlanLabel: 'Site Plan',
-      masterPlanImages: [{ url: '/Amber Site.jpg', crop: { scale: '170%', marginLeft: '0%', marginTop: '-8%', marginBottom: '-3%' } }],
+      masterPlanImages: [{ url: '/Amber Site.jpg?v=2', crop: { scale: '170%', marginLeft: '0%', marginTop: '-8%', marginBottom: '-3%' } }],
       floorPlanImages: [
         { url: '/amber stlit floor plan.jpg', title: 'Stilt Floor Plan', crop: { scale: '100%', marginLeft: '0%', marginTop: '0%', marginBottom: '0%' } },
         { url: '/amber first floor plan.jpg', title: 'First Floor Plan', crop: { scale: '100%', marginLeft: '0%', marginTop: '0%', marginBottom: '-62%' } },
