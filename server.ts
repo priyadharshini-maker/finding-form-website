@@ -86,10 +86,6 @@ async function startServer() {
   } else {
     // In production, serve static files from dist
     app.use(express.static('dist'));
-    // Fallback: serve index.html for all client-side routes
-    app.get('*', (_req, res) => {
-      res.sendFile('index.html', { root: 'dist' });
-    });
   }
 
   app.listen(PORT, '0.0.0.0', () => {
