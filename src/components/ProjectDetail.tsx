@@ -144,12 +144,14 @@ export default function ProjectDetail() {
                     {project.description}
                   </p>
                 )}
-                <button
-                  onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
-                  className="bg-bg text-ink px-8 py-4 text-sm font-medium uppercase tracking-widest hover:opacity-90 transition-opacity shadow-2xl whitespace-nowrap"
-                >
-                  View Project Details
-                </button>
+                {project.details && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
+                    className="bg-bg text-ink px-8 py-4 text-sm font-medium uppercase tracking-widest hover:opacity-90 transition-opacity shadow-2xl whitespace-nowrap"
+                  >
+                    View Project Details
+                  </button>
+                )}
               </div>
             </div>
 
@@ -166,12 +168,14 @@ export default function ProjectDetail() {
                   {project.description}
                 </p>
               )}
-              <button
-                onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
-                className="mt-2 border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5"
-              >
-                View Project Details
-              </button>
+              {project.details && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}/secure-details`); }}
+                  className="mt-2 border border-bg text-bg text-xs tracking-widest uppercase px-5 py-2.5"
+                >
+                  View Project Details
+                </button>
+              )}
             </motion.div>
           </motion.div>
         </div>

@@ -6,9 +6,13 @@ export interface ProjectGalleryCategory {
 export interface ProjectDetails {
   brochureUrl?: string;
   masterPlanUrl?: string;
-  masterPlanImages?: string[];
+  masterPlanImages?: (string | { url: string; crop?: { scale: string; marginLeft: string; marginTop: string; marginBottom: string } })[];
   floorPlanUrl?: string;
-  floorPlanImages?: string[];
+  floorPlanImages?: (string | { url: string; title?: string; crop?: { scale: string; marginLeft: string; marginTop: string; marginBottom: string } })[];
+  hideFloorPlan?: boolean;
+  hideBrochure?: boolean;
+  hideMasterPlan?: boolean;
+  masterPlanLabel?: string;
 }
 
 export interface Project {
@@ -46,7 +50,8 @@ export const projects: Project[] = [
     ],
     details: {
       brochureUrl: 'https://heyzine.com/flip-book/588af4707e.html#page/18',
-      masterPlanImages: ['https://i.postimg.cc/h4z9zfPR/Serenity-Hillview-Masterplan.png'],
+      masterPlanImages: ['/Serenity Hillview Master Plan.jpg'],
+      hideFloorPlan: true,
     }
   },
   {
@@ -72,45 +77,35 @@ export const projects: Project[] = [
           { url: 'https://i.postimg.cc/3NfM0xPJ/Terrace-Detail-Lounge-Area-with-Laser-Cut-Screening.png', caption: 'Terrace Detail Lounge Area with Laser Cut Screening' }
         ]
       }
-    ]
+    ],
+    details: {
+      brochureUrl: 'https://heyzine.com/flip-book/917c2aa29a.html',
+      masterPlanLabel: 'Site Plan',
+      masterPlanImages: [{ url: '/Amber Site.jpg', crop: { scale: '170%', marginLeft: '0%', marginTop: '-8%', marginBottom: '-3%' } }],
+      floorPlanImages: [
+        { url: '/amber stlit floor plan.jpg', title: 'Stilt Floor Plan', crop: { scale: '100%', marginLeft: '0%', marginTop: '0%', marginBottom: '0%' } },
+        { url: '/amber first floor plan.jpg', title: 'First Floor Plan', crop: { scale: '100%', marginLeft: '0%', marginTop: '0%', marginBottom: '-62%' } },
+        { url: '/amber second and fourth floor plan.jpg', title: 'Second & Fourth Floor Plan', crop: { scale: '100%', marginLeft: '0%', marginTop: '0%', marginBottom: '-62%' } },
+      ],
+    }
   },
   {
     id: '3',
     number: '03',
-    title: 'Terragreens',
-    category: 'Residential Farm Development',
-    imageUrl: 'https://i.postimg.cc/cstDm289/1-(5).png',
-    description: 'A sprawling residential farm development that brings you closer to nature. Enjoy spacious farmhouses surrounded by organic gardens and serene landscapes.',
-    galleries: [
-      {
-        name: 'Site Entrance',
-        images: [
-          { url: 'https://i.postimg.cc/F9JCgSKm/Aerial-Entrance-View.jpg', caption: 'Aerial Entrance View' },
-          { url: 'https://i.postimg.cc/XnPDCLnY/Entrance-Gatehouse.jpg', caption: 'Entrance Gatehouse' },
-          { url: 'https://i.postimg.cc/k7Hhbs7X/Gate-Side-View.jpg', caption: 'Gate Side View' },
-          { url: 'https://i.postimg.cc/Yt0s0ZKb/Main-Entrance-Gate.jpg', caption: 'Main Entrance Gate' }
-        ]
-      },
-      {
-        name: 'Villa Areas',
-        images: [
-          { url: 'https://i.postimg.cc/GdCBcnYb/Front-Yard.png', caption: 'Front Yard' },
-          { url: 'https://i.postimg.cc/3YFkNfCm/Garden-View.png', caption: 'Garden View' },
-          { url: 'https://i.postimg.cc/HdgJp15k/House-Exterior.png', caption: 'House Exterior' },
-          { url: 'https://i.postimg.cc/jRqL76Zz/Outdoor-Seating.png', caption: 'Outdoor Seating' },
-          { url: 'https://i.postimg.cc/GdCBcnYh/Side-Pond.png', caption: 'Side Pond' },
-          { url: 'https://i.postimg.cc/fDN3wQXz/Swimming-Pool.png', caption: 'Swimming Pool' }
-        ]
-      }
-    ]
-  },
-  {
-    id: '4',
-    number: '04',
     title: 'The Home with the Trapped Gardens',
     category: 'Individual Residence',
     imageUrl: 'https://i.postimg.cc/3NNGWzv0/Scene-6-(4).png',
     description: 'A unique individual residence built around internal courtyards and trapped gardens. Natural light and greenery seamlessly integrate into the living spaces.',
+    details: {
+      hideBrochure: true,
+      hideMasterPlan: true,
+      floorPlanImages: [
+        { url: '/Hattangadi Ground Floor.jpg', title: 'Ground Floor Plan', crop: { scale: '60%', marginLeft: '20%', marginTop: '0%', marginBottom: '0%' } },
+        { url: '/Hattangadi First Floor.jpg', title: 'First Floor Plan', crop: { scale: '60%', marginLeft: '20%', marginTop: '0%', marginBottom: '0%' } },
+        { url: '/Hattangadi Second Floor.jpg', title: 'Second Floor Plan', crop: { scale: '60%', marginLeft: '20%', marginTop: '0%', marginBottom: '-15%' } },
+        { url: '/Hattangadi Third Floor.jpg', title: 'Third Floor Plan', crop: { scale: '60%', marginLeft: '20%', marginTop: '0%', marginBottom: '-8%' } },
+      ],
+    },
     galleries: [
       {
         name: 'Exterior & Entrance',
@@ -139,8 +134,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '5',
-    number: '05',
+    id: '4',
+    number: '04',
     title: 'Masons Desk',
     category: 'Furniture design',
     imageUrl: 'https://i.postimg.cc/13ZQSGzv/Night-Scene-Hero-View.png',
@@ -166,41 +161,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '6',
-    number: '06',
-    title: 'White and Grey',
-    category: 'Individual Residence',
-    imageUrl: 'https://i.postimg.cc/CLXw39MP/Whats-App-Image-2025-08-06-at-12-20-19-PM-(2).jpg',
-    description: 'A modern individual residence characterized by its striking monochromatic palette. Clean lines and minimalist design create a sophisticated and timeless home.',
-    galleries: [
-      {
-        name: 'Exterior Views',
-        images: [
-          { url: 'https://i.postimg.cc/4dHJSJNm/Daytime-Exterior-Perspective.jpg', caption: 'Daytime Exterior Perspective' },
-          { url: 'https://i.postimg.cc/yd3VbVYd/Night-time-Exterior-Perspective.jpg', caption: 'Night time Exterior Perspective' },
-          { url: 'https://i.postimg.cc/85f101Pc/Side-Entrance-and-Garage-View.jpg', caption: 'Side Entrance and Garage View' }
-        ]
-      },
-      {
-        name: 'Kitchen & Dining',
-        images: [
-          { url: 'https://i.postimg.cc/FF2fmB2T/Formal-Dining-Area-and-Bar-Lounge.jpg', caption: 'Formal Dining Area and Bar Lounge' },
-          { url: 'https://i.postimg.cc/RCj39Dkr/Kitchen-Perspective-with-Geometric-Ceiling-Detail.png', caption: 'Kitchen Perspective with Geometric Ceiling Detail' },
-          { url: 'https://i.postimg.cc/SQwXqvww/Modern-Kitchen-Cabinetry.png', caption: 'Modern Kitchen Cabinetry' }
-        ]
-      },
-      {
-        name: 'Living Area',
-        images: [
-          { url: 'https://i.postimg.cc/fLVLQcC5/Living-Room-Lounge-with-Marble-Wall-Accents.jpg', caption: 'Living Room Lounge with Marble Wall Accents' },
-          { url: 'https://i.postimg.cc/hjXjRLss/Main-Living-Area-Television-Feature-Wall.jpg', caption: 'Main Living Area Television Feature Wall' }
-        ]
-      }
-    ]
-  },
-  {
-    id: '7',
-    number: '07',
+    id: '5',
+    number: '05',
     title: 'The Spanish Dream',
     category: 'Villa Interiors',
     imageUrl: 'https://i.postimg.cc/d0nDd4v3/Enscape-2020-11-19-11-07-36-(1).png',
@@ -228,8 +190,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '8',
-    number: '08',
+    id: '6',
+    number: '06',
     title: 'Riverstones',
     category: 'Residential Farm Development',
     imageUrl: 'https://i.postimg.cc/fWfQD02q/Scene-6-(2).png',
@@ -284,11 +246,19 @@ export const projects: Project[] = [
           { url: 'https://i.postimg.cc/JMMkV7fm/Side-Perspective-View.png', caption: 'Side Perspective View' }
         ]
       }
-    ]
+    ],
+    details: {
+      brochureUrl: 'https://heyzine.com/flip-book/b0019a192e.html',
+      masterPlanImages: [{ url: '/riverstone masterplan.jpg', crop: { scale: '60%', marginLeft: '20%', marginTop: '0%', marginBottom: '0%' } }],
+      floorPlanImages: [
+        { url: '/Villa 1 Floor Plan.jpg', title: 'Villa 1 Floor Plan', crop: { scale: '80%', marginLeft: '10%', marginTop: '5%', marginBottom: '5%' } },
+        { url: '/Villa 2 Floor Plan.jpg', title: 'Villa 2 Floor Plan', crop: { scale: '80%', marginLeft: '10%', marginTop: '0%', marginBottom: '0%' } },
+      ],
+    }
   },
   {
-    id: '9',
-    number: '09',
+    id: '7',
+    number: '07',
     title: 'Number 10 Coffee Stall',
     category: 'Coffee Kiosk',
     imageUrl: 'https://i.postimg.cc/DwCvQCF5/External-Isometric-Overview.png',
@@ -313,8 +283,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '10',
-    number: '10',
+    id: '8',
+    number: '08',
     title: 'Aura',
     category: 'Restobar',
     imageUrl: 'https://i.postimg.cc/BJcNqmgY/Bird-s-Eye-Perspective.png',
@@ -338,8 +308,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '11',
-    number: '11',
+    id: '9',
+    number: '09',
     title: 'Frames and Walls Office',
     category: 'Office space',
     imageUrl: 'https://i.postimg.cc/sfFNNvKZ/Front-View.png',
@@ -356,8 +326,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '12',
-    number: '12',
+    id: '10',
+    number: '10',
     title: 'Hampi House',
     category: 'Office space',
     imageUrl: 'https://i.postimg.cc/FzzdFbCB/Full-building-Landscaping.png',
@@ -376,8 +346,8 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: '13',
-    number: '13',
+    id: '11',
+    number: '11',
     title: 'Ranka Oasis',
     category: 'Residential Plotted Development',
     imageUrl: 'https://i.postimg.cc/XjF68bLm/Front-Elevation-of-Twin-Villas.png',
@@ -398,6 +368,10 @@ export const projects: Project[] = [
           { url: 'https://i.postimg.cc/CFRgRDqS/Row-Villa-Perspective-View.png', caption: 'Row Villa Perspective View' }
         ]
       }
-    ]
+    ],
+    details: {
+      brochureUrl: 'https://heyzine.com/flip-book/7e8d72e63f.html',
+      masterPlanUrl: 'https://drive.google.com/file/d/1sfTPYhBjpLSosOn2G3H26dYoQgqgBwEP/preview',
+    }
   },
 ];
